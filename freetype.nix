@@ -18,7 +18,7 @@ in stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "mirror://savannah/freetype/${name}.tar.bz2";
-    sha256 = "0kg8w6qyiizlyzh4a8lpzslipcbv96hcg3rqqpnxba8ffbm8g3fv";
+    sha256 = "18k3b026762lmyrxfil5xv8qwnvj7hc12gz9bjqzbb12lmx707ip";
   };
 
   propagatedBuildInputs = [ zlib bzip2 libpng ]; # needed when linking against freetype

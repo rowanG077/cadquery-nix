@@ -1,14 +1,14 @@
 { stdenv, fetchFromGitHub, autoconf, automake, libtool, bison, pcre, buildPackages }:
 
 stdenv.mkDerivation rec {
-  name = "swig-${version}";
+  pname = "swig-${version}";
   version = "3.0.9";
 
   src = fetchFromGitHub {
     owner = "swig";
     repo = "swig";
-    rev = "rel-${version}";
-    sha256 = "1wyffskbkzj5zyhjnnpip80xzsjcr3p0q5486z3wdwabnysnhn8n";
+    rev = "rel-3.0.9";
+    sha256 = "1y63024npwb4x104fmryp7bxgl3z2g2zf952w8f2k9r6s82a7knf";
   };
 
   PCRE_CONFIG = "${pcre.dev}/bin/pcre-config";
