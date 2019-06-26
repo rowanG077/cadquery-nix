@@ -19,14 +19,5 @@ stdenv.mkDerivation {
   # Add the derivation to the PATH
   buildInputs = [
     cq-editor
-    cadquery
-    cq-pythonPackages.pyparsing
-    cq-pyqt
-    cq-pythonPackages.pyqtgraph
-    spyder
-    cq-pythonPackages.pathpy
-    cq-pythonPackages.Logbook
-    cq-pythonPackages.qtconsole
-    cq-pythonPackages.requests
   ];
 }

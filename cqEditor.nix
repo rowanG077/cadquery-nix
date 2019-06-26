@@ -20,10 +20,10 @@ cq-pythonPackages.buildPythonPackage rec {
     sha256 = "11ljwqlla2i90mirw5i8568brchgsp0jjc37i93n521aafb0h633";
   };
 
-  phases = [ "unpackPhase" "installPhase" "postFixup"];
+  phases = [ "unpackPhase" "installPhase"];
 
   # Add the derivation to the PATH
-  propogatedBuildInputs = [
+  pythonPath = [
     cadquery
     cq-pythonPackages.pyparsing
     cq-pyqt
@@ -36,13 +36,15 @@ cq-pythonPackages.buildPythonPackage rec {
   ];
 
   installPhase = ''
+    buildPythonPath "$pythonPath"
     mkdir -p $out/CQ-editor
     mkdir -p $out/bin
 
     cp -r ./* $out/CQ-editor
 
-    printf '%s\n%s %s $@\n' \
+    printf '%s\n%s\n%s %s $@\n' \
       "#!/usr/bin/env bash" \
+      "export PYTHONPATH='$PYTHONPATH'" \
       "exec ${cq-python}/bin/${cq-python.executable}" \
       "$out/CQ-editor/run.py" \
       > $out/bin/CQ-editor
